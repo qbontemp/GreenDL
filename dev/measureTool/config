@@ -1,0 +1,3 @@
+5
+/home/exemple/AI-venv/bin/python3.7 CNN.py dataSet/dog_cat sortieIA_40_32_4 40 32 4
+/home/exemple/AI-venv/bin/python3.7 CNN.py dataSet/dog_cat sortieIA_40_16_4 40 16 4

@@ -18,7 +18,7 @@ De fait, les explications pour son utilisation ne concernent que les systèmes l
 ### Logiciel de mesure
 Le logiciel de mesure se trouve dans le répèrtoire dev/measureTool/. 
 
-La compillation s'effectue en appellent la commande **make** dans le répèrtoire dev/measureTool/sources/. Il est a noté qu'il dépend de deux bibliothèques additionnelles (libpowercap et libraplcap-powercap) qui sont comprisent dans le repos git (dev/measureTool/libs/) et sont linker statiquement avec le programme de mesure.
+La compillation s'effectue en appellent la commande **make** dans le répèrtoire dev/measureTool/sources/. Il est a noté qu'il dépend de deux bibliothèques additionnelles (libpowercap et libraplcap-powercap refs: https://github.com/powercap) qui sont comprisent dans le repos git (dev/measureTool/libs/) et sont linker statiquement avec le programme de mesure.
 
 L'utilisation du binaire obtenut consiste a créer un fichier de configuration contenant sur la première ligne le nombre d'itération qu'un test doit être effectuer (pour mesurer la moyenne) et sur les lignes suivantes les commandes a appellées (un test par ligne qui est constituer par la commande a appellée comme en shell). Ensuite, le programme est appellé en lui passent le path vers sont fichier de configuration, le path vers un fichier de sortie général (qui contient une ligne par test en renseigent moyenne de consommation, temps et écart types), le path vers un répertoirs (qui doit exister) pour contenir les fichiers de sorties détaillé pour chaque test (les donnés ayant servies au calcul des moyennes) et le nombres de coeurs du cpu. Ce qui donne:
 > sudo ./measureTool path\_conf\_file path\_generalOutput\_file path\_directory\_benchFiles nb\_cpu\_core
