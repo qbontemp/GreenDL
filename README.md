@@ -1,9 +1,9 @@
 # GreenDL
 
 ## Objectif
-Nous avons travaillé sur la consommation de l'entrainment des réseaux de neurones CNN en essayant d'exporer deux paramètres qui semblaient pouvoir influancer cette consommation (taille du noyau et nombres de filtres sur la couche de convollution).
+Ce repositorie contient les outils dévelloppés dans le cadre d'un travail sur la consommation de l'entrainment des réseaux de neurones CNN en essayant d'exporer deux paramètres qui semblaient pouvoir influancer cette consommation (taille du noyau et nombres de filtres sur la couche de convollution).
 
-Pour ce faire, on est partit sur l'implémentation de deux logiciels, un logiciel de mesure et une IA bac à sable.
+Pour ce faire, deux logiciels ont été implémentés, un logiciel de mesure et une IA bac à sable.
 
 Le logiciel de mesure implémente une méthode générique pour mesurer la consommation de l'exécution d'un logiciel.
 
