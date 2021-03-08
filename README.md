@@ -1,26 +1,26 @@
 # GreenDL
 
 ## Objectif
-On a décidé de travailler en particulier sur la consommation de l'entrainment des réseaux de neurones en essayant de déterminer les paramètres (nombre de neurones par couche, nombre des couches, dimension des entrées, etc) qui influencent leurs consommations.
+Nous avons travaillé sur la consommation de l'entrainment des réseaux de neurones CNN en essayant d'exporer deux paramètres qui semblaient pouvoir influancer cette consommation (taille du noyau et nombres de filtres sur la couche de convollution).
 
-Pour ce faire, on part sur l'implémentation de deux logiciels, un logiciel de mesure et une IA bac à sable.
+Pour ce faire, on est partit sur l'implémentation de deux logiciels, un logiciel de mesure et une IA bac à sable.
 
 Le logiciel de mesure implémente une méthode générique pour mesurer la consommation de l'exécution d'un logiciel.
 
-Tandis que l'IA bac à sable est un programme d'entrainment pour un réseau des neurones à convolution (classification d'images de chiens et de chats),  permettant de régler les paramètres principaux lors de son lancement.
-
-La finalité étant d'utiliser le programme de mesure pour effectuer des benchmarks de l'IA pour des paramètres différents et d'interpréter les données obtenues (comprendre l'influence des différents paramètres sur la consommation, comparer a l'efficacitée des modèles entraîner, etc).
-
-Enfin, le cheminement pourra peut être permettre de proposer notre propre solution pour évaluer la consommation d'un réseau de neurone ou au moins donner un indice (une grandeur représentative abstraite (sans unité) pour avoir une idée de classification par rapport aux autres réseaux) de leur consommation probable.
+Tandis que l'IA bac à sable est un programme d'entrainement pour un réseau des neurones à convolution (classification d'images de chiens et de chats),  permettant de régler les paramètres principaux lors de son lancement.
 
 
 ## Utilisation des logiciels
+
+Le programme de mesure est uniquement utilisable sur linux (et peut être sur d'autres systèmes UNIX mais non tester).
+De fait, les explications pour son utilisation ne concernent que les systèmes linux (debian-like de préférence).
+
 ### Logiciel de mesure
 Le logiciel de mesure se trouve dans le répèrtoire dev/measureTool/. 
 
 La compillation s'effectue en appellent la commande **make** dans le répèrtoire dev/measureTool/sources/. Il est a noté qu'il dépend de deux bibliothèques additionnelles (libpowercap et libraplcap-powercap) qui sont comprisent dans le repos git (dev/measureTool/libs/) et sont linker statiquement avec le programme de mesure.
 
-L'utilisation du binaire obtenut consiste a créer un fichier de configuration contenant sur la première ligne le nombre d'itération qu'un test doit être effectuer (pour mesurer la moyenne) et sur les lignes suivantes les commandes a appellées (un test par ligne qui est constituer par la commande a appellée comme en shell). Ensuite, le programme est appellé en lui passent le path vers sont fichier de configuration, le path vers un fichier de sortie général (qui contient une ligne par test en renseigent moyenne de consommation, temps et écart types), le path vers un répertoirs (qui doit exister) pour contenir les fichiers de sorties détaillé pour chaque test (les donnés ayant servies au calcul des moyennes) et le nombres de coeurs du cpu (non utiliser mais demander tout de même). Ce qui donne:
+L'utilisation du binaire obtenut consiste a créer un fichier de configuration contenant sur la première ligne le nombre d'itération qu'un test doit être effectuer (pour mesurer la moyenne) et sur les lignes suivantes les commandes a appellées (un test par ligne qui est constituer par la commande a appellée comme en shell). Ensuite, le programme est appellé en lui passent le path vers sont fichier de configuration, le path vers un fichier de sortie général (qui contient une ligne par test en renseigent moyenne de consommation, temps et écart types), le path vers un répertoirs (qui doit exister) pour contenir les fichiers de sorties détaillé pour chaque test (les donnés ayant servies au calcul des moyennes) et le nombres de coeurs du cpu. Ce qui donne:
 > sudo ./measureTool path\_conf\_file path\_generalOutput\_file path\_directory\_benchFiles nb\_cpu\_core
 
 ### IA
@@ -51,11 +51,11 @@ L'utilisation en temps que telle nécessite d'activer l'environement virtuel et 
 	deactivate
 
 ### Lancement des mesures
-Pour lancer la prise des mesures, l'utilisation du fichier de configuration present sur gitlab (dev/measureTool/config) pour le programme de mesure est requis. Ainci que la création d'un répèrtoire pour les sorties du programme de mesure et un répèrtoire pour les sorties de l'IA (requier possiblement de modifier des paths dans le fichier de configuration de gitlab).
+Pour lancer la prise des mesures, l'utilisation d'un fichier de configuration (exemple present sur le repos git: dev/measureTool/config) pour le programme de mesure est requis. Ainci que la création d'un répèrtoire pour les sorties du programme de mesure et un répèrtoire pour les sorties de l'IA (requier possiblement de modifier des paths dans le fichier de configuration exemple de git si utiliser).
 	
 	# entrer dans l'environement virtuel
 	source IAvenv/bin/activate
 	# lancer le programme de mesure
-	sudo ./measureTool path\_conf\_file\gitlab path\_generalOutput\_file path\_directory\_benchFiles nb\_cpu\_core
+	sudo ./measureTool path_conf_file_gitlab path_generalOutput_file path_directory_benchFiles nb_cpu_core
 	# sortie de l'environement
 	deactivate
