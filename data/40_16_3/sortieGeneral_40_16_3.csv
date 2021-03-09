@@ -1,0 +1,4 @@
+benchTurns,avgConsumptionRT,sdConsumptionRT,avgRealTime,sdRealTime,avgConsumptionCPU,sdConsumptionCPU,avgCpuTime,sdCpuTime
+
+Thu Jan 28 13:20:57 2021 /AI-venv/bin/python3.7 CNN.py dataSet/dog_cat sortieIA_40_16_3 40 16 3
+5,96109.206693,820.721499,1690.850018,52.697562,112459.268279,26195.324409,7519.220146,25.557687
