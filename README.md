@@ -1,5 +1,7 @@
 # GreenDL
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/qbontemp/GreenDL/master?filepath=Output_plots.ipynb)
+
 ## Objectif
 Ce repositorie contient les outils dévelloppés dans le cadre d'un travail sur la consommation de l'entrainment des réseaux de neurones CNN en essayant d'exporer deux paramètres qui semblaient pouvoir influancer cette consommation (taille du noyau et nombres de filtres sur la couche de convollution).
 
