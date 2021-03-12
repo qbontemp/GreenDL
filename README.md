@@ -52,9 +52,9 @@ Pour l'utiliser, il est conseillé de créer un environnement virtuel python dan
 	# active l'environnement virtuel
 	source IAvenv/bin/activate
 	# installation des dépendences du programme
-	pip install keras pillow tensorflow-cpu pandas sklearn
+	pip install keras pillow tensorflow pandas sklearn
 	# sortie de l'environnement virtuel
-	deactivate
+	desactivate
 
 L'utilisation nécessite d'activer l'environnement virtuel et d'appeller le programme avec les bons paramètres (voir sources pour une liste exhaustive). Les paramètres principaux étant path\_vers\_dog\_cat\_folder qui est le chemin vers les données d'entrainement et path\_vers\_fichier\_sortie qui est le fichier qui contiendra les précisions des réseaux obtenus après entrainement (l'appel avec ces deux seuls paramètres lance un entrainement pour des valeurs par défaut des autres paramètres). Un entrainement avec configuration minimale peut être lancé avec :
 
@@ -63,7 +63,7 @@ L'utilisation nécessite d'activer l'environnement virtuel et d'appeller le prog
 	# appel du programme
 	python CNN.py path_vers_dog_cat_folder path_vers_fichier_sortie nombre_epoque nombre_filtre size_kernel
 	# sortie de l'environnement (lorsque le programme est fini)
-	deactivate
+	desactivate
 
 ### Lancement des mesures
 Pour lancer la prise des mesures, l'utilisation d'un fichier de configuration est requise. Un exemple de fichier de config est présenté dans : dev/measureTool/config. De même, la création d'un répertoire pour les sorties du programme de mesure et d’un répertoire pour les sorties de l'IA est aussi demandée (si le fichier config du dépôt git est utilisé, les chemins vers ces répertoires devront potentiellement ils aussi être modifiés).
@@ -73,4 +73,4 @@ Pour lancer la prise des mesures, l'utilisation d'un fichier de configuration es
 	# lancer le programme de mesure
 	sudo ./measureTool path_conf_file_gitlab path_generalOutput_file path_directory_benchFiles nb_cpu_core
 	# sortie de l'environnement
-	deactivate
+	desactivate
