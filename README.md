@@ -41,6 +41,8 @@ Exemple d'utilisation :
 ### IA
 L'IA se trouve dans le répertoire dev/IA2/ et son jeu de données se trouve dans dev/dataSet/dog\_cat/.
 
+Le jeu de données utilisé est un sous-ensemble du jeu de données disponible sur Kaggle : https://www.kaggle.com/c/dogs-vs-cats/data. 
+
 L'IA est un programme en python3 qui entraine un réseau de neurones pour la classification d'images selon les paramètres fournis en entrée. Le programme repose sur l'utilisation des librairies Keras et TensorFlow.
 
 Pour l'utiliser, il est conseillé de créer un environnement virtuel python dans le quel les dépendances nécessaires sont installées. Pour ce faire (attention a la version de pip utilisée si plusieurs versions de python cohabitent sur le système):
