@@ -39,7 +39,7 @@ Exemple d'utilisation :
 
 
 ### IA
-L'IA se trouve dans le répertoire dev/IA2/ et son jeu de données se trouve dans dev/dataSet/dog\_cat/.
+L'IA se trouve dans le répertoire dev/IA/ et son jeu de données se trouve dans dev/dataSet/dog\_cat/.
 
 Le jeu de données utilisé est un sous-ensemble du jeu de données disponible sur Kaggle : https://www.kaggle.com/c/dogs-vs-cats/data. 
 
