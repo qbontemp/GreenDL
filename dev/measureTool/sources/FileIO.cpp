@@ -3,17 +3,14 @@
 
 #include<iostream>
 #include<fstream>
-
 #include<string>
 #include<cstdlib>
 #include<stdexcept>
 #include <algorithm>
-
 #include<queue>
 
 #include<FileIO.hpp>
 
-// TODO oublie pas les exceptions, on code propre ici. :)
 
 void FileIO::initConfigFile()
 {
@@ -57,11 +54,9 @@ void FileIO::saveBenchInfo(struct BenchInfoWork* bInfo)
 
     // --  INIT -- //
     std::fstream outputFile;
-    //std::string outputBenchFileName = bInfo->cmd + "__" + bInfo->date + ".txt";
     std::string outputBenchFileName = bInfo->date + "_NB" + std::to_string(bInfo->benchNb) + ".csv";
     std::replace(outputBenchFileName.begin(), outputBenchFileName.end(), '/', '-'); // replacing '/' by '-'
     std::replace(outputBenchFileName.begin(), outputBenchFileName.end(), ' ', '_'); // replacing ' ' by '-'
-    //std::string outputBenchPath = _benchDirectoryPath + "/" + outputBenchFileName;
 
     std::string outputBenchPath; // = _benchDirectoryPath + "/" + outputBenchFileName;
     if (_benchDirectoryPath.back() == '/')
@@ -94,7 +89,6 @@ void FileIO::saveBenchInfo(struct BenchInfoWork* bInfo)
     {
         // CONSUMPTION | REAL_TIME
         outputFile << std::to_string(bInfo->benchTurn) + std::string(",") + std::to_string(bInfo->consumptionRT) + std::string(",") + std::to_string(bInfo->realTime) + std::string(",") + std::to_string(bInfo->consumptionCPU) + std::string(",") + std::to_string(bInfo->cpuTime) << std::endl;
-        //outputFile << std::string("epoch: ") + std::to_string(bInfo->epoch) + std::string(", consumptionRT: ") + std::to_string(bInfo->consumptionRT) + std::string(", consumptionCPU: ") + std::to_string(bInfo->consumptionCPU) + std::string(", realTime: ") +std::to_string(bInfo->realTime) + std::string(", cpuTime: ") +std::to_string(bInfo->cpuTime) << std::endl;
         outputFile.close();
     }  
     else
@@ -113,7 +107,6 @@ void FileIO::wrapUpBench(struct BenchInfoFinal* bInfo)
     // -- INIT -- //
     std::fstream outputFile;
     std::string outputSummaryPath = _generalOutputPath;
-    //std::string outputBenchFileName = bInfo->cmd + "__" + bInfo->date + ".txt";
     std::string outputBenchFileName = bInfo->date + "_NB" + std::to_string(bInfo->benchNb) + ".csv";
     std::replace(outputBenchFileName.begin(), outputBenchFileName.end(), '/', '-'); // replacing '/' by '-'
     std::replace(outputBenchFileName.begin(), outputBenchFileName.end(), ' ', '_'); // replacing ' ' by '-'
@@ -134,7 +127,7 @@ void FileIO::wrapUpBench(struct BenchInfoFinal* bInfo)
     // -- SUMMARY FILE -- //
     if (! exists && outputFile.is_open())
     {
-        // Si fichiers n'existait pas, on va imprimer un guide visuel des résultats à la 1ère ligne
+        // Si fichier n'existait pas, on va imprimer un guide visuel des résultats à la 1ère ligne
         outputFile << std::string("benchTurns") + std::string(",") + std::string("avgConsumptionRT") + std::string(",") + std::string("sdConsumptionRT") + std::string(",") + std::string("avgRealTime") + std::string(",") + std::string("sdRealTime") + std::string(",") + std::string("avgConsumptionCPU") + std::string(",") + std::string("sdConsumptionCPU") + std::string(",") + std::string("avgCpuTime") + std::string(",") + std::string("sdCpuTime") << std::endl;
         outputFile << std::endl;
     }

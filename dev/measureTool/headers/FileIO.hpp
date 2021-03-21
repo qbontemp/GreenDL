@@ -26,7 +26,6 @@ struct BenchInfoWork /* Structure pour créer les fichiers du benchmark */
     std::string cmd;
 
     // epoch
-    //int epoch;
     int benchNb;
     int benchTurn;
 
@@ -87,24 +86,30 @@ class FileIO
         FileIO(const std::string& configFilePath, const std::string& generalOutputPath, const std::string& benchDirectoryPath);
         ~FileIO() = default;
 
+        /*
+            Renvoit le nombre de benchmarks à exécuter.
+        */
         int getNbBench();
+
+        /*
+            Renvoit le nombre de tours d'un benchmark.
+        */
         int getBenchTurns();
 
+        /*
+            Renvoit de la prochaine commande à exécuter.
+        */
         std::string readNextCommand();
 
-        void saveBenchInfo(struct BenchInfoWork* bInfo);
         /* 
             Sauvegarde un tour du benchmark.
-            // (BenchInfoWork supprimée dans le méthode.)
         */  
-
-        void wrapUpBench(struct BenchInfoFinal* bInfo);
+        void saveBenchInfo(struct BenchInfoWork* bInfo);
+        
         /*
             Crée un fichier récapitulatif du benchmark.
-            // (BenchInfoFinal supprimée dans le méthode.)
         */
-        
-
+        void wrapUpBench(struct BenchInfoFinal* bInfo);
 };
 
 #endif

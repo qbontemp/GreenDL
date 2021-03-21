@@ -1,4 +1,4 @@
-/* but: mesure l'énèrgie consommée par l'exécution de commandes passée dans son fichier de configuration
+/* but: mesure l'énergie consommée par l'exécution de commandes passées dans son fichier de configuration
  */
 
 
